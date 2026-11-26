@@ -42,7 +42,7 @@
   em{font-style:italic}
   h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:.92;letter-spacing:-.01em}
   h2{font-size:clamp(52px,7.5vw,112px)}
-  section{padding:110px 0;position:relative}
+  section{padding:96px 0;position:relative}
 
   /* Section header: newspaper style */
   .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;border-top:2px solid var(--rule);padding-top:14px;margin-bottom:56px;flex-wrap:wrap}
@@ -226,7 +226,7 @@
   .postcard .stamp{width:64px;height:76px;border:2px dashed var(--green);display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--green);text-align:center;line-height:1;padding:4px}
   .postcard .from{grid-column:1/-1;font-family:var(--hand);font-size:26px;color:var(--ink-2);border-top:1px solid var(--hair);padding-top:12px}
   .stars{color:#c9932b;letter-spacing:3px;font-size:14px}
-  .rating-line{display:flex;gap:18px;align-items:center;margin-top:90px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:rgba(243,238,226,.8);flex-wrap:wrap}
+  .rating-line{display:flex;gap:18px;align-items:center;margin-top:64px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:rgba(243,238,226,.8);flex-wrap:wrap}
   .rating-line b{font-family:var(--serif);font-weight:400;font-size:56px;color:var(--chalk);letter-spacing:0;text-transform:none}
 
   /* Visit */
@@ -268,6 +268,24 @@
   .wordmark{font-family:var(--serif);font-size:19.5vw;line-height:.74;letter-spacing:-.03em;text-align:center;white-space:nowrap;color:var(--paper);margin-bottom:-2vw;user-select:none}
   .wordmark i{color:var(--butter)}
 
+
+  /* Today grid */
+  .today-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start}
+  .today .board{transform:rotate(-.6deg)}
+  .pick .moods{margin:16px 0 34px}
+  .pick .rec{grid-template-columns:.9fr 1.1fr;min-height:330px}
+  .pick .rec h3{font-size:38px}
+  /* Footer visit */
+  footer .foot-top{grid-template-columns:380px 1fr;gap:70px;align-items:center;padding-bottom:70px}
+  footer .ticket{color:var(--ink)}
+  footer .ticket h3{font-size:40px}
+  footer .addr h3{font-size:clamp(46px,5.6vw,84px)}
+  footer .addr h3 em{color:var(--butter)}
+  footer .addr-line{border-top-color:rgba(244,236,223,.6)}
+  footer .addr-line div{border-color:rgba(244,236,223,.18)}
+  footer .addr-line small{color:rgba(244,236,223,.55)}
+  footer .btn:not(.btn-y){background:transparent;color:var(--paper)}
+
   /* Reveal */
   .rv{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
   .rv.in{opacity:1;transform:none}
@@ -282,7 +300,8 @@
     section{padding:80px 0}
     nav.main .wrap{grid-template-columns:auto 1fr}
     .nav-l,.nav-r a.l{display:none}
-    .hero-grid,.board-wrap,.picker,.article,.visit,.foot-top{grid-template-columns:minmax(0,1fr)}
+    .hero-grid,.board-wrap,.picker,.article,.visit,.foot-top,.today-grid,footer .foot-top{grid-template-columns:minmax(0,1fr)}
+    footer .ticket{max-width:400px}
     .pile{height:560px;max-width:560px;margin:10px auto 0;width:100%}
     .contents{grid-template-columns:1fr 1fr}
     .contents a:nth-child(2){border-right:0}
@@ -316,7 +335,7 @@
     .board h3{font-size:38px}
     .menu-card{padding:40px 22px 30px;box-shadow:5px 5px 0 var(--ink)}
     .s1,.s2{display:none}
-    .rec{grid-template-columns:1fr;transform:none}
+    .rec,.pick .rec{grid-template-columns:1fr;transform:none}
     .rec .img{height:220px;border-right:0;border-bottom:1.5px solid var(--ink)}
     .rec .tag-hand{right:6px}
     .rec h3{font-size:38px}
@@ -332,16 +351,16 @@
 <div class="topbar">
   <div class="wrap">
     <span id="issue">Vol. 08 · No. 3,193</span>
-    <span class="hide-m" id="today">Thursday, 26 November</span>
+    <span class="hide-m" id="todayDate">Thursday, 26 November</span>
     <span class="live" id="status">Open now · til 6pm</span>
   </div>
 </div>
 
 <nav class="main">
   <div class="wrap">
-    <div class="nav-l"><a href="#board">Today</a><a href="#menu">Menu</a><a href="#story">Story</a></div>
+    <div class="nav-l"><a href="#menu">Menu</a><a href="#today">Today</a></div>
     <a href="#" class="logo">[demo<i>cafe</i>]</a>
-    <div class="nav-r"><a href="#wall" class="l">Wall</a><a href="#visit" class="l">Visit</a><a href="#order" class="btn btn-y">Order ahead</a></div>
+    <div class="nav-r"><a href="#notes" class="l">Reviews</a><a href="#visit" class="l">Visit</a><a href="#visit" class="btn btn-y">Order ahead</a></div>
   </div>
 </nav>
 
@@ -372,12 +391,6 @@
       </div>
     </div>
 
-    <div class="contents rv">
-      <a href="#board"><b>02</b><div><span>Today's board</span><small>What's left in the case</small></div></a>
-      <a href="#menu"><b>03</b><div><span>The menu</span><small>Coffee · kitchen · bakery</small></div></a>
-      <a href="#story"><b>04</b><div><span>Our story</span><small>A corner &amp; a kettle</small></div></a>
-      <a href="#visit"><b>05</b><div><span>Find us</span><small>Hours &amp; directions</small></div></a>
-    </div>
   </div>
 
   <div class="ticker" aria-hidden="true">
@@ -388,31 +401,9 @@
   </div>
 </header>
 
-<section id="board">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="mono">Section 02 — Today's Board</span><span class="page-no">p. 2</span></div>
-    <div class="board-wrap">
-      <div class="board-copy">
-        <h2 class="rv">What's left<br><em style="color:var(--green)">in the case.</em></h2>
-        <p class="rv d1">We bake once, at 5am, in small batches. When it's gone, it's gone — so here's a live look at the pastry case. Early birds, you know what to do.</p>
-        <div class="rv d2" style="margin-top:30px"><a href="#order" class="btn btn-y">Reserve a pastry →</a></div>
-      </div>
-      <div class="board rv d1">
-        <h3>The pastry case</h3>
-        <p class="sub" id="boardTime">Updated live</p>
-        <div class="rows" id="rows"></div>
-        <div class="brew">
-          <div class="hand"><small>On filter today</small>Ethiopia Guji — <br>blueberry, jasmine &amp; honey</div>
-          <div class="hand" style="text-align:right;color:var(--butter)">ask for<br>a taste!</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="menu-sec" id="menu">
   <div class="wrap">
-    <div class="sec-head rv"><span class="mono">Section 03 — The Menu</span><span class="page-no">p. 3</span></div>
+    <div class="sec-head rv"><span class="mono">Section 02 — The Menu</span><span class="page-no">p. 2</span></div>
     <div class="menu-card rv">
       <div class="menu-title">
         <h3>Things we <em>make.</em></h3>
@@ -425,7 +416,6 @@
           <div class="mi"><div class="ln">Honey Oat Latte<b>5.50</b></div><p>Oat milk, local wildflower honey, cinnamon.</p></div>
           <div class="mi"><div class="ln">Pour Over<b>6.00</b></div><p>Seasonal single origin, brewed by hand.</p></div>
           <div class="mi"><div class="ln">Iced Brown Sugar<b>5.75</b></div><p>Shaken espresso, brown sugar, splash of milk.</p></div>
-          <div class="mi"><div class="ln">Matcha Latte<b>5.50</b></div><p>Stone-ground ceremonial matcha.</p></div>
         </div>
         <div class="col">
           <h4>Kitchen <span>til 3pm</span></h4>
@@ -433,7 +423,6 @@
           <div class="mi"><div class="ln">The Big One<span class="flag">FAVE</span><b>18.00</b></div><p>Eggs, bacon, mushrooms, hash brown, toast.</p></div>
           <div class="mi"><div class="ln">Buttermilk Pancakes<b>15.00</b></div><p>Berries, maple, whipped mascarpone.</p></div>
           <div class="mi"><div class="ln">Granola Bowl<b>11.50</b></div><p>House granola, yoghurt, fruit, honey.</p></div>
-          <div class="mi"><div class="ln">Eggs Benny<b>16.50</b></div><p>Ham or spinach, hollandaise, muffin.</p></div>
         </div>
         <div class="col">
           <h4>Bakery <span>from 5am</span></h4>
@@ -441,7 +430,6 @@
           <div class="mi"><div class="ln">Cinnamon Scroll<b>4.75</b></div><p>Vanilla cream cheese glaze.</p></div>
           <div class="mi"><div class="ln">Almond Croissant<b>5.25</b></div><p>Twice-baked, frangipane, flaked almonds.</p></div>
           <div class="mi"><div class="ln">Banana Bread<b>5.00</b></div><p>Served warm with salted butter.</p></div>
-          <div class="mi"><div class="ln">Cake of the Day<b>6.50</b></div><p>Ask what's in the cabinet.</p></div>
         </div>
       </div>
       <div class="menu-foot"><span class="mono" style="font-size:11px">Prices in $ · Menu № 08</span><span class="hand" style="font-size:26px;color:var(--green)">made with love (and a lot of butter)</span></div>
@@ -457,78 +445,46 @@
   </div>
 </section>
 
-<section id="pick">
+<section id="today" class="today">
   <div class="wrap">
-    <div class="sec-head rv"><span class="mono">Advice column — Ask the barista</span><span class="page-no">p. 3½</span></div>
-    <div class="picker">
-      <div>
-        <h2 class="rv">Can't decide?<br><em style="color:var(--green)">We'll pick.</em></h2>
-        <p class="rv d1" style="font-size:18px;color:var(--ink-2);max-width:440px;margin-top:22px">Tell us how you're feeling and our baristas will tell you exactly what to order. No judgement. Mostly.</p>
-        <div class="moods rv d2">
+    <div class="sec-head rv"><span class="mono">Section 03 — Today at the counter</span><span class="page-no">p. 3</span></div>
+    <h2 class="rv" style="margin-bottom:56px">Fresh today. <em style="color:var(--green)">Gone by noon.</em></h2>
+    <div class="today-grid">
+      <div class="board rv">
+        <h3>The pastry case</h3>
+        <p class="sub" id="boardTime">Updated live</p>
+        <div class="rows" id="rows"></div>
+        <div class="brew">
+          <div class="hand"><small>On filter today</small>Ethiopia Guji — <br>blueberry, jasmine &amp; honey</div>
+          <div class="hand" style="text-align:right;color:var(--butter)">ask for<br>a taste!</div>
+        </div>
+      </div>
+      <div class="pick rv d1">
+        <p class="mono" style="color:var(--ink-3)">Can't decide? Tell us your mood —</p>
+        <div class="moods">
           <button class="mood on" data-m="wake">☀️ Need to wake up</button>
           <button class="mood" data-m="treat">🥐 Treat myself</button>
           <button class="mood" data-m="cosy">🌧 Cosy &amp; slow</button>
           <button class="mood" data-m="brunch">🍳 Proper brunch</button>
         </div>
-      </div>
-      <div class="rec rv d1">
-        <span class="tag-hand">trust us ✶</span>
-        <div class="img"><img id="recImg" src="img/iced-latte.jpg" alt="Recommended order"></div>
-        <div class="txt">
-          <span class="mono">The barista recommends</span>
-          <h3 id="recName">Iced Brown Sugar Shaken</h3>
-          <p id="recDesc">Two shots, brown sugar and a splash of milk over ice. Zero regrets, maximum focus.</p>
-          <div class="price" id="recPriceRow"><span id="recPrice">$5.75</span><a href="#order" class="btn btn-y" style="padding:9px 16px;font-size:13px">Order this →</a></div>
+        <div class="rec">
+          <span class="tag-hand">trust us ✶</span>
+          <div class="img"><img id="recImg" src="img/iced-latte.jpg" alt="Recommended order"></div>
+          <div class="txt">
+            <span class="mono">The barista recommends</span>
+            <h3 id="recName">Iced Brown Sugar Shaken</h3>
+            <p id="recDesc">Two shots, brown sugar and a splash of milk over ice. Zero regrets, maximum focus.</p>
+            <div class="price" id="recPriceRow"><span id="recPrice">$5.75</span><a href="#visit" class="btn btn-y" style="padding:9px 16px;font-size:13px">Order this →</a></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="story" style="padding-top:40px">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="mono">Section 04 — Feature</span><span class="page-no">p. 4</span></div>
-    <div class="article">
-      <figure class="rv">
-        <div class="ph"><img src="img/story-interior.jpg" alt="Inside the café, plants and rattan chairs"></div>
-        <figcaption>Fig. 1 — The window seats, 7:42am. Usually taken by 7:45.</figcaption>
-      </figure>
-      <div>
-        <h2 class="rv">A corner, a kettle<br>&amp; <em>a lot of regulars.</em></h2>
-        <div class="byline rv d1"><span>Words by the [democafe] family</span><i></i><span>2 min read</span></div>
-        <div class="body-cols rv d2">
-          <p>It started with one second-hand espresso machine and a very stubborn sourdough starter named Gerald. We wanted a place that felt like the kitchen of your favourite friend — the one who always has something in the oven.</p>
-          <p>Years later, Gerald is still going. Our beans come straight from family farms, our milk from just down the road, and everything in the case is made right here, before the sun comes up.</p>
-          <p>But honestly? The coffee's only half of it. It's the regulars who remember each other's dogs, the Sunday crossword crowd, and the first-timers who become third-timers by Friday.</p>
-          <p>So come in, stay a while. We'll learn your order.</p>
-        </div>
-        <p class="pull rv d3">We'll learn your name by the second visit, and your order by the third.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="wall" style="padding-top:40px">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="mono">Section 05 — The Wall</span><span class="page-no">p. 5</span></div>
-    <h2 class="rv" style="margin-bottom:60px">Snapshots <em style="color:var(--green)">from the counter.</em></h2>
-    <div class="wall">
-      <figure class="polaroid drop"><span class="tape"></span><div class="shot"><img src="img/counter.jpg" alt="The café counter"></div><figcaption>home base</figcaption></figure>
-      <figure class="polaroid drop d1"><span class="tape"></span><div class="shot"><img src="img/cups.jpg" alt="Coffee cups from above"></div><figcaption>the whole crew</figcaption></figure>
-      <figure class="polaroid drop d2"><span class="tape"></span><div class="shot"><img src="img/iced-latte.jpg" alt="Iced latte"></div><figcaption>summer mode</figcaption></figure>
-      <figure class="polaroid drop d3"><span class="tape"></span><div class="shot"><img src="img/bread.jpg" alt="Fresh bread"></div><figcaption>Gerald's work</figcaption></figure>
-      <figure class="polaroid drop"><span class="tape"></span><div class="shot"><img src="img/pour-over.jpg" alt="Pour-over coffee"></div><figcaption>slow pour</figcaption></figure>
-      <figure class="polaroid drop d1"><span class="tape"></span><div class="shot"><img src="img/menu-breakfast.jpg" alt="Brunch spread"></div><figcaption>sunday brunch</figcaption></figure>
-      <figure class="polaroid drop d2"><span class="tape"></span><div class="shot"><img src="img/interior.jpg" alt="Café seating"></div><figcaption>4pm quiet hour</figcaption></figure>
-      <figure class="polaroid drop d3"><span class="tape"></span><div class="shot"><img src="img/menu-coffee.jpg" alt="Friends cheersing lattes"></div><figcaption>cheers to you</figcaption></figure>
-    </div>
-    <p class="rv" style="text-align:center;margin-top:70px"><a href="#" class="btn">Follow @democafe on Instagram →</a></p>
   </div>
 </section>
 
 <section class="notes-sec" id="notes">
   <div class="wrap">
-    <div class="sec-head rv"><span class="mono">Section 06 — Letters to the editor</span><span class="page-no">p. 6</span></div>
+    <div class="sec-head rv"><span class="mono">Section 04 — Letters to the editor</span><span class="page-no">p. 4</span></div>
     <h2 class="rv" style="margin-bottom:70px">Notes left <em>on our wall.</em></h2>
     <div class="notes">
       <div class="n sticky rv">“Best croissant I've had outside of Paris. I'm not even exaggerating. Okay, maybe a little.”<small>— Emily, Tuesdays &amp; Thursdays</small></div>
@@ -550,10 +506,9 @@
   </div>
 </section>
 
-<section id="visit">
+<footer id="visit">
   <div class="wrap">
-    <div class="sec-head rv"><span class="mono">Section 07 — Classifieds: Find us</span><span class="page-no">p. 7</span></div>
-    <div class="visit">
+    <div class="foot-top">
       <div class="ticket rv">
         <h3>Opening hours</h3>
         <p class="c">Valid every week · no ticket required</p><hr>
@@ -570,55 +525,15 @@
         <div class="barcode"></div>
       </div>
       <div class="addr">
-        <h2 class="rv">Come say hi.<br><em>We'll put the kettle on.</em></h2>
+        <p class="mono rv" style="color:var(--butter);margin-bottom:18px">Section 05 — Find us</p>
+        <h3 class="rv">Come say hi.<br><em>We'll put the kettle on.</em></h3>
         <div class="addr-line rv d1">
           <div><small>Address</small>123 Main Street, Your Town</div>
           <div><small>Call</small>(555) 012-3456</div>
           <div><small>Write</small>hello@democafe.com</div>
         </div>
-        <div class="map rv d2">
-          <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs><filter id="sk"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="2" seed="2"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></defs>
-            <g filter="url(#sk)" fill="none" stroke="#1f1712" stroke-linecap="round" stroke-width="2.2">
-              <path d="M-10 120 C 200 110, 400 140, 810 115"/><path d="M-10 150 C 200 140, 400 170, 810 145"/>
-              <path d="M300 -10 C 310 120, 290 260, 305 410"/><path d="M330 -10 C 340 120, 320 260, 335 410"/>
-              <path d="M560 -10 C 570 150, 550 260, 565 410"/>
-              <path d="M-10 320 C 250 310, 500 340, 810 320"/>
-              <rect x="80" y="190" width="150" height="80" rx="40" fill="#cfe0c4"/>
-              <path d="M620 200 c 20 -20 60 -10 70 15 c 25 0 40 30 20 45 c -10 25 -60 25 -80 10 c -30 0 -35 -55 -10 -70z" fill="#c5dbe4"/>
-            </g>
-            <g font-family="Caveat, cursive" font-size="30" fill="#2d4f3c">
-              <text x="105" y="240">the park</text><text x="640" y="240">pond</text>
-              <text x="430" y="100" transform="rotate(-3 430 100)">Main St.</text>
-              <text x="365" y="222">← you're nearly here!</text>
-            </g>
-            <g transform="translate(318 210)">
-              <circle r="28" fill="#f3c75f" stroke="#1f1712" stroke-width="2.5"/>
-              <path d="M-11 -6 h18 v8 a9 9 0 0 1 -9 9 a9 9 0 0 1 -9 -9z M7 -3 h3 a4 4 0 0 1 0 8 h-3" fill="none" stroke="#1f1712" stroke-width="2.4" stroke-linejoin="round"/>
-            </g>
-          </svg>
-          <a href="#" class="btn btn-y">Get directions →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer id="order">
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <p class="mono" style="color:var(--butter);margin:0 0 16px">Subscribe — it's free</p>
-        <h3>Get <em>The Morning Post.</em></h3>
-        <p>One short email a week: new bakes, seasonal drinks and the occasional free croissant. No spam, just crumbs.</p>
-      </div>
-      <div>
-        <form class="subform" onsubmit="event.preventDefault();this.querySelector('button').textContent='You’re in ☕';this.reset()">
-          <input type="email" placeholder="your@email.com" aria-label="Email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-        <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
-          <a href="#" class="btn btn-y">Order ahead →</a><a href="#" class="btn">Book a table</a>
+        <div class="rv d2" style="display:flex;gap:12px;margin-top:30px;flex-wrap:wrap">
+          <a href="#" class="btn btn-y">Order ahead →</a><a href="#" class="btn">Get directions</a>
         </div>
       </div>
     </div>
@@ -640,7 +555,7 @@
 
   // Masthead: date, issue number, open status
   const now = new Date(), day = now.getDay(), h = now.getHours() + now.getMinutes()/60;
-  document.getElementById('today').textContent = now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  document.getElementById("todayDate").textContent = now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
   const issue = Math.floor((now - new Date(2018,2,1)) / 864e5);
   document.getElementById('issue').textContent = `Vol. ${String(now.getFullYear()-2018).padStart(2,'0')} · No. ${issue.toLocaleString('en-US')}`;
   document.getElementById('yr').textContent = now.getFullYear();
