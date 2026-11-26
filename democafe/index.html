@@ -16,8 +16,8 @@
     --espresso:#2a1c14;
     --roast:#4a3226;
     --mocha:#7a5c4a;
-    --accent:#c2673d;      /* terracotta */
-    --accent-dk:#a8542f;
+    --accent:#3f5e47;      /* forest green */
+    --accent-dk:#2f4836;
     --sage:#7d8b6a;
     --line:rgba(42,28,20,.12);
     --serif:"Fraunces",Georgia,"Times New Roman",serif;
@@ -51,7 +51,7 @@
   /* Buttons */
   .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:500;font-size:15px;transition:all .3s ease;border:0;cursor:pointer;font-family:inherit}
   .btn-fill{background:var(--espresso);color:var(--cream)}
-  .btn-fill:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(194,103,61,.6)}
+  .btn-fill:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(63,94,71,.6)}
   .btn-line{box-shadow:inset 0 0 0 1.5px var(--espresso);color:var(--espresso)}
   .btn-line:hover{background:var(--espresso);color:var(--cream)}
   .btn .arr{transition:transform .3s}.btn:hover .arr{transform:translateX(4px)}
@@ -123,7 +123,7 @@
   .item{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:24px 0;border-bottom:1px dashed var(--line)}
   .item:first-child{padding-top:0}
   .item h3{font-size:24px;font-weight:400;display:flex;align-items:center;gap:10px}
-  .tag{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:999px;background:rgba(194,103,61,.12);color:var(--accent)}
+  .tag{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:999px;background:rgba(196,150,72,.18);color:#8a632a}
   .tag.v{background:rgba(125,139,106,.16);color:#5d6a4c}
   .item .price{font-family:var(--serif);font-size:22px;color:var(--accent)}
   .item p{grid-column:1/-1;color:var(--mocha);font-size:15px}
@@ -132,14 +132,15 @@
 
   /* Feature (dark) */
   .feature{background:var(--espresso);color:var(--cream);position:relative;overflow:hidden}
-  .feature::before{content:"";position:absolute;width:700px;height:700px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(194,103,61,.35),transparent 65%)}
+  .feature::before{content:"";position:absolute;width:700px;height:700px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(63,94,71,.35),transparent 65%)}
   .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
   .feature .lead{color:#cbb9a8}
-  .feature .kicker{color:#e39a73}
+  .feature h2 em{color:#d4b27a}
+  .feature .kicker{color:#d4b27a}
   .feature-img{height:560px;border-radius:300px 300px var(--r) var(--r)}
   .steps{margin-top:44px;display:grid;gap:4px}
   .steps div{display:grid;grid-template-columns:56px 1fr;padding:20px 0;border-top:1px solid rgba(248,242,233,.14)}
-  .steps b{font-family:var(--serif);font-style:italic;font-weight:300;font-size:26px;color:#e39a73;line-height:1}
+  .steps b{font-family:var(--serif);font-style:italic;font-weight:300;font-size:26px;color:#d4b27a;line-height:1}
   .steps strong{display:block;font-weight:500;font-size:17px}
   .steps span{color:#b8a594;font-size:15px}
 
@@ -165,9 +166,9 @@
   /* Visit */
   .visit-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;margin-top:64px}
   .info{background:var(--espresso);color:var(--cream);border-radius:var(--r);padding:48px;display:flex;flex-direction:column;gap:34px}
-  .info h3{font-size:14px;font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;color:#e39a73;font-weight:600;margin-bottom:14px}
+  .info h3{font-size:14px;font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;color:#d4b27a;font-weight:600;margin-bottom:14px}
   .hours div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(248,242,233,.12);font-size:16px}
-  .hours div.today{color:#e39a73;font-weight:500}
+  .hours div.today{color:#d4b27a;font-weight:500}
   .info p{font-size:17px;color:#e6d8c9}
   .map{position:relative;border-radius:var(--r);overflow:hidden;min-height:460px;background:#efe4d2}
   .map svg{position:absolute;inset:0;width:100%;height:100%}
@@ -175,7 +176,7 @@
   .pin-card{background:var(--paper);padding:14px 18px;border-radius:14px;box-shadow:0 20px 40px -14px rgba(42,28,20,.4);text-align:center;margin-bottom:10px;white-space:nowrap}
   .pin-card b{font-family:var(--serif);font-size:18px;font-weight:500;display:block}
   .pin-card small{font-size:12px;color:var(--mocha)}
-  .pin-dot{width:22px;height:22px;border-radius:50%;background:var(--accent);border:4px solid #fff;box-shadow:0 0 0 10px rgba(194,103,61,.22)}
+  .pin-dot{width:22px;height:22px;border-radius:50%;background:var(--accent);border:4px solid #fff;box-shadow:0 0 0 10px rgba(63,94,71,.22)}
   .map .btn{position:absolute;left:24px;bottom:24px;background:var(--paper)}
 
   /* CTA */
@@ -184,7 +185,7 @@
   .cta .ph::after{background:linear-gradient(180deg,rgba(42,28,20,.72),rgba(42,28,20,.86))}
   .cta .wrap{position:relative;z-index:2}
   .cta h2{font-size:clamp(44px,7vw,92px);font-weight:300}
-  .cta h2 em{color:#f0b48f}
+  .cta h2 em{color:#e2c48f}
   .cta p{font-size:19px;color:#eadccd;margin:22px auto 40px;max-width:520px}
   .cta .btn-fill{background:var(--cream);color:var(--espresso)}
   .cta .btn-fill:hover{background:var(--accent);color:#fff}
@@ -412,7 +413,7 @@
       <div class="rating rv d2"><strong>4.9</strong><span style="color:#e0a43a;letter-spacing:3px">★★★★★</span><span>from 1,200+ reviews</span></div>
     </div>
     <div class="rev-grid">
-      <div class="rev rv"><span class="stars">★★★★★</span><blockquote>“The coziest café in town. Perfect coffee, the croissants are unreal, and the staff remember your order.”</blockquote><div class="who"><i style="background:#c2673d">EM</i><div><b>Emily R.</b><span>Regular since 2021</span></div></div></div>
+      <div class="rev rv"><span class="stars">★★★★★</span><blockquote>“The coziest café in town. Perfect coffee, the croissants are unreal, and the staff remember your order.”</blockquote><div class="who"><i style="background:#3f5e47">EM</i><div><b>Emily R.</b><span>Regular since 2021</span></div></div></div>
       <div class="rev rv d1"><span class="stars">★★★★★</span><blockquote>“My go‑to for weekend brunch. Big portions, beautiful space and the best flat white I've had.”</blockquote><div class="who"><i style="background:#7d8b6a">DK</i><div><b>Daniel K.</b><span>Google Review</span></div></div></div>
       <div class="rev rv d2"><span class="stars">★★★★★</span><blockquote>“Such a warm, welcoming atmosphere. I come here to work and always end up staying for cake.”</blockquote><div class="who"><i style="background:#4a3226">SP</i><div><b>Sofia P.</b><span>Local Guide</span></div></div></div>
     </div>
