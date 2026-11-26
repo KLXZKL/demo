@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl *images.unsplash.com*)",
+      "WebFetch(domain:images.unsplash.com)"
+    ]
+  }
+}
